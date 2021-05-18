@@ -1,8 +1,8 @@
 # Warning 
 We will be using Cowin public API and it is advisable not to overwhelm the Cowin's system with lot of API calls as your IP may get blocked.
 
-# Cowin_Vaccine_Notifier
-Python(3.7) script to automate the notification of Cowin vaccine slots availability.
+# Cowin Vaccine Notifier
+Python(3.7) script to automate the notification of Cowin vaccine slots availability. You can schedule this script in Windows Task Scheduler or Crontab in Linux/Ubuntu systems. I will add information on how to schedule this on Amazon Web Services Cloud as soon as possible.
 
 # Pre requisite
 pip install twilio
