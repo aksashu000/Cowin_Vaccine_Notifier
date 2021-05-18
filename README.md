@@ -7,6 +7,7 @@ Python(3.7) script to automate the notification of Cowin vaccine slots availabil
 # Pre requisite
 pip install twilio
 
+# Important points about Twilio
 Twilio API has been used to send SMS notification. There are some steps that you need to follow.
 1. Sign up for a free account on Twilio: https://www.twilio.com/.
 2. After logging in, add your phone number on which you want to receive SMS notifications.
