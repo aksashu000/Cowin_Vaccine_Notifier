@@ -29,8 +29,10 @@ def findVaccineSlotsAvailability(pinCodeList):
             next_week = datetime.today() + timedelta(days=i)
             current = next_week.strftime('%d-%m-%Y')
 
+    #Set the below header, otherwise, you may get 403 error
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'}
     slotFound = False
+    #Create empty set to store the message to be sent
     message = set()
 
     for url in one_month_urls:
@@ -39,7 +41,7 @@ def findVaccineSlotsAvailability(pinCodeList):
                 
         for center in data.centers:
             for session in center.sessions:
-                #Chech the slots for 18+ age
+                #Check the slots for 18+ age
                 if session.available_capacity > 0 and "18" in str(session.min_age_limit):                
                     message.add(str(center.pincode)+"_"+session.date+"_"+str(session.available_capacity))
                     slotFound = True                
