@@ -4,16 +4,15 @@ from datetime import datetime, timedelta
 from twilio.rest import Client
 
 def sendSMS(message):    
-    # the following line needs your Twilio Account SID and Auth Token
+    # The following line needs your Twilio Account SID and Auth Token
+    # They have been declared as environment variables so that to avoid putting credentials in the code
     client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
 
     #SMS can contain only 1600 characters, so we will limit it to avoid exception
     if(len(message)>=1600):        
         message = message[0:1500] 
 
-    # change the "from_" number to your Twilio number and the "to" number
-    # to the phone number you signed up for Twilio with, or upgrade your
-    # account to send SMS to any phone number
+    # "from_" number is your Twilio number and the "to" number is the phone number you signed up for Twilio with
     client.messages.create(to="+917596911771", from_="+19514674784",body=message)            
 
 def findVaccineSlotsAvailability(pinCodeList):    
@@ -41,7 +40,7 @@ def findVaccineSlotsAvailability(pinCodeList):
         for center in data.centers:
             for session in center.sessions:
                 #Chech the slots for 18+ age
-                if session.available_capacity > 0 and "45" in str(session.min_age_limit):                
+                if session.available_capacity > 0 and "18" in str(session.min_age_limit):                
                     message.add(str(center.pincode)+"_"+session.date+"_"+str(session.available_capacity))
                     slotFound = True                
         
