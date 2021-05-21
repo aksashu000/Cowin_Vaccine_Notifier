@@ -39,9 +39,9 @@ def findVaccineSlotsAvailability(pinCodeList):
                 
         for center in data.centers:
             for session in center.sessions:
-                #Chech the slots for 18+ age
-                if session.available_capacity > 0 and "18" in str(session.min_age_limit):                
-                    message.add(str(center.pincode)+"_"+session.date+"_"+str(session.available_capacity))
+                #Chech the slots for 18+ age, dose1
+                if session.available_capacity_dose1 > 0 and "18" in str(session.min_age_limit):                
+                    message.add(str(center.pincode)+"_"+session.date+"_"+str(session.available_capacity_dose1))
                     slotFound = True                
         
     if slotFound:
@@ -50,5 +50,5 @@ def findVaccineSlotsAvailability(pinCodeList):
         print("No slot found.")
 
 #Call the function with the desired pin code list
-pinCodeList=['560087', '560037', '560066', '411028', '800001', '800020', '800008', '800007', '249401', '249402', '249403']
+pinCodeList=['560087', '560037', '560066', '411028', '249403', '844114', '847422', '800001']
 findVaccineSlotsAvailability(pinCodeList)
