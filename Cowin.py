@@ -29,8 +29,10 @@ def findVaccineSlotsAvailability(pinCodeList):
             next_week = datetime.today() + timedelta(days=i)
             current = next_week.strftime('%d-%m-%Y')
 
+    #Set the below header, otherwise, you may get 403 error
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'}
     slotFound = False
+    #Create empty set to store the message to be sent
     message = set()
 
     for url in one_month_urls:
@@ -52,3 +54,4 @@ def findVaccineSlotsAvailability(pinCodeList):
 #Call the function with the desired pin code list
 pinCodeList=['560087', '560037', '560066', '411028', '249403', '844114', '847422', '800001']
 findVaccineSlotsAvailability(pinCodeList)
+
