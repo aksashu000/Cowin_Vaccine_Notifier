@@ -17,4 +17,4 @@ Twilio API has been used to send SMS notification. There are some steps that you
 6. Twilio's SMS API has limitation of 1600 characters.
 
 # Youtube tutorial video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HbQCwNHL3S4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Cowin Vaccine Notifier](https://img.youtube.com/vi/HbQCwNHL3S4&t=15s/0.jpg)](http://www.youtube.com/watch?v=HbQCwNHL3S4&t=15s)
