@@ -1,9 +1,9 @@
-import requests, json, os
+import requests, json, os, traceback
 from types import SimpleNamespace as Namespace
 from datetime import datetime, timedelta
 from twilio.rest import Client
 
-def sendSMS(message):    
+def sendSMS(message):
     # The following line needs your Twilio Account SID and Auth Token
     # They have been declared as environment variables so that to avoid putting credentials in the code
     client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
@@ -13,7 +13,7 @@ def sendSMS(message):
         message = message[0:1500] 
 
     # "from_" number is your Twilio number and the "to" number is the phone number you signed up for Twilio with
-    client.messages.create(to="+917596911771", from_="+19514674784",body=message)            
+    client.messages.create(to="+917596911771", from_="+19514674784",body=message)  
 
 def findVaccineSlotsAvailability(pinCodeList):    
     #Cowin URL
@@ -51,7 +51,18 @@ def findVaccineSlotsAvailability(pinCodeList):
     else:        
         print("No slot found.")
 
-#Call the function with the desired pin code list
-pinCodeList=['560087', '560037', '560066', '844114', '847422', '800001', '403505']
-findVaccineSlotsAvailability(pinCodeList)
+# This method is automatically invoked by AWS when the code is deployed as Lambda function
+def lambda_handler(event, context):
+    try:    
+        pinCodeList=['560087', '560037', '560066', '844114', '847422', '800001', '403505']
+        #Call the function with the desired pin code list
+        findVaccineSlotsAvailability(pinCodeList)
+        return {
+            'statusCode': 200,
+            'body': json.dumps('Execution completed successfully!')
+        }
+    except Exception as e:
+        #sendSMS("Exception occurred." + str(e))
+        traceback.print_exc()
 
+#lambda_handler("","")
