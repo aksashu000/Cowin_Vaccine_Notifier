@@ -15,3 +15,6 @@ Twilio API has been used to send SMS notification. There are some steps that you
 4. On the Dashboard page, make a note of the "ACCOUNT SID" and "AUTH TOKEN". These values will be used in sendSMS() function.
 5. Once your Twilio account set up is complete, you can create environment variables TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN and use them in the sendSMS() function.
 6. Twilio's SMS API has limitation of 1600 characters.
+
+# Youtube tutorial video
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HbQCwNHL3S4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
