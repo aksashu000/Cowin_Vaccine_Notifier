@@ -1,4 +1,5 @@
 # Warning 
+This is not a production system setup and is purely for learning purpose. 
 We will be using Cowin public API and it is advisable not to overwhelm the Cowin's system with lot of API calls as your IP may get blocked.
 
 # Cowin Vaccine Notifier
